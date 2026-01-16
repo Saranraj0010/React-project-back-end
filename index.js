@@ -1,17 +1,40 @@
 const express = require('express')
-const app=express()
+const app = express()
+const cors = require("cors")
+const {router} = require('./Src/practice/router')
+const dbconnection = require('./Src/practice/connection')
 // const port= 3000
 
-// console.log("ASDFBASDFASDNFSDf")
-app.get("/",(req,res)=>{
-    // res.send("hello world")
+const whitelist = ['http://localhost:5173']
+const corsOptions = {
+    origin: function (origin, callback) {
+        if (whitelist.includes(origin)||!origin) {
+            callback(null, true)
+        } else {
+            callback(new Error('Not allowed by CORS'))
+        }
+    }
+}
+
+app.use(cors(corsOptions));  
+app.use(express.json());
+app.use(router);
+
+app.get("/", (req, res) => {
     res.send("welcome")
 });
-app.listen(3000,(error)=>{
-    if(error){
-        console.log(error)
+
+app.listen(3000, (error) => {
+    if (error) {
+        return console.log("Server ERror")
     }
-    else{
-        console.log(`http://localhost:3000`)
-    }
+    dbconnection.dbconnection.connect((err) => {
+        if (err) {
+            console.log(err)
+        }
+        else {
+            console.log("CONNECT DB SUCCESS")
+
+        }
+    })
 })
