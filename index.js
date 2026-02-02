@@ -15,7 +15,6 @@ const corsOptions = {
         }
     }
 }
-
 app.use(cors(corsOptions));  
 app.use(express.json());
 app.use(router);
@@ -33,7 +32,7 @@ app.listen(3000, (error) => {
             console.log(err)
         }
         else {
-            console.log("CONNECT DB SUCCESS")
+            console.log("CONNECT DB SUCCESS","http://localhost:3000")
 
         }
     })

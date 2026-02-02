@@ -50,6 +50,7 @@ const getFormController = async (req, res) => {
 const updateFormController = async (req, res) => {
     try {
         const data = req.body
+        console.log(data,"hello")
         const result = await FormService.updateFormService(data)
         console.log(result,"hello")
         return res.status(200).json({

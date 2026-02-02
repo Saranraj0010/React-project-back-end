@@ -5,6 +5,6 @@ const connection=mysql2.createConnection({
     port:"3306",
     user:"root",
     password:"saran5",
-    database:"world",
+    database:"saran",
 })
 module.exports={connection}

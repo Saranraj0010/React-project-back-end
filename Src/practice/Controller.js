@@ -1,5 +1,26 @@
 const Service = require("./Service")
-
+const AddForm = async (req, res) => {
+    try {
+        const data = req.body
+        console.log(data)
+        const result = await Service.AddForm(data)
+        console.log(result)
+        return res.status(200).json({
+            message: "Post Added",
+            data: result
+        })
+    } catch (err) {
+        if (err) {
+            console.log(err)
+            return res.status(400).json({
+                message: "Post Failed",
+            })
+        }
+    }
+    return res.status(500).json({
+        message: "server error"
+    })
+}
 const AddController = async (req, res) => {
     try {
 
@@ -68,7 +89,7 @@ const UpdateControler = async (req, res) => {
             message: "server error"
         })
     }
-}
+} 
 
 const DeleteController = async (req, res) => {
     try {
@@ -91,4 +112,4 @@ const DeleteController = async (req, res) => {
     })
 
 }
-module.exports = { AddController, GetController, UpdateControler, DeleteController }
+module.exports = { AddController, GetController, UpdateControler, DeleteController, AddForm }

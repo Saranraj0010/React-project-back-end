@@ -1,5 +1,19 @@
 const connection = require("./connection")
-
+const AddForm =(id,Name,age)=>{
+    return new Promise((resolve, reject) => {
+        let query=`insert into tabledata(id,Name,age) values(?,?,?)`
+        connection.dbconnection.query(query,[id,Name,age],
+            (err,res)=>{
+                if(err){
+                    console.log(err ,"error")
+                    return reject(err)
+                }else{
+                    return resolve(res)
+                }
+            }
+        )
+    })
+}
 const AddModel = (id, name, address, email) => {
     return new Promise((resolve, reject) => {
         let query = `insert into data(id,name,address,email) values(?,?,?,?)`
@@ -18,7 +32,7 @@ const AddModel = (id, name, address, email) => {
 
 const getModel = () => {
     return new Promise((resolve, reject) => {
-        let query = `Select name,address,email from data where ondelete=1;`
+        let query = `Select id,name,address,email from data where ondelete=1;`
         connection.dbconnection.query(query, (err, res) => {
             if (err) {
                 return reject(console.log("error", err))
@@ -28,7 +42,6 @@ const getModel = () => {
             }
         })
     })
-
 }
 
 const UpdateModel = (id, name, address, email) => {
@@ -44,13 +57,12 @@ const UpdateModel = (id, name, address, email) => {
                 }
             }
         )
-
     })
 }
 
 const DeleteModel = (id) => {
     return new Promise((resolve, reject) => {
-        let query=`update data set ondelete=0 where id=?;`
+        let query=`update data set ondelete=0 where id =?;`
         connection.dbconnection.query(query, [id],
             (err, res) => {
                 if (err) {
@@ -63,4 +75,4 @@ const DeleteModel = (id) => {
     })
 }
 
-module.exports = { AddModel, getModel, UpdateModel, DeleteModel }
+module.exports = { AddModel, getModel, UpdateModel, DeleteModel,AddForm }

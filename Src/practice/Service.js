@@ -5,6 +5,11 @@ const AddService =async (data) =>{
     console.log(result)
     return result
 }
+const AddForm = async(data)=>{
+    const result= await model.AddForm(data.id,data.Name,data.age)
+    console.log(result,"hello")
+    return result
+}
 
 const getService = async() => {
     const result=await model.getModel()
@@ -21,4 +26,4 @@ const DeleteService = async(table) => {
     return result
 }
 
-module.exports={AddService,getService,UpdateService,DeleteService}
+module.exports={AddService,getService,UpdateService,DeleteService,AddForm}
