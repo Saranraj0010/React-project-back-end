@@ -1,8 +1,8 @@
 const express = require('express')
 const app = express()
 const cors = require("cors")
-const {router} = require('./Src/practice/router')
-const dbconnection = require('./Src/practice/connection')
+const {router} = require('./Src/router/router')
+const dbconnection = require('./Src/connection/connection')
 // const port= 3000
 
 const whitelist = ['http://localhost:5173']
@@ -27,7 +27,7 @@ app.listen(3000, (error) => {
     if (error) {
         return console.log("Server ERror")
     }
-    dbconnection.dbconnection.connect((err) => {
+    dbconnection.connection.connect((err) => {
         if (err) {
             console.log(err)
         }

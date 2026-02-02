@@ -1,4 +1,4 @@
-const connection = require("./practice/connection")
+const connection = require("../../../connection/connection")
 
 const addFormModel = (
     studentId,
