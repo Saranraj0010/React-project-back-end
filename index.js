@@ -1,8 +1,8 @@
 const express = require('express')
 const app = express()
 const cors = require("cors")
-const {router} = require('./Src/router/router')
-const dbconnection = require('./Src/connection/connection')
+const {router} = require('./src/router/router')
+const dbconnection = require('./src/connection/connection')
 // const port= 3000
 
 const whitelist = ['http://localhost:5173']

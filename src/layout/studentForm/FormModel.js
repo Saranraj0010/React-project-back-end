@@ -43,7 +43,7 @@ const getFormModel = () => {
             SELECT studentId, firstName, middleName, lastName, dateOfBirth,
                    streetAddress, city, statee, pincode, country, email, phoneNumber
             FROM student
-            WHERE inDelete = 0
+            WHERE isDelete = 1
         `
 
         connection.connection.query(query, (err, res) => {
@@ -97,7 +97,7 @@ const updateFormModel = (
 
 const deleteFormModel = (studentId) => {
     return new Promise((resolve, reject) => {
-        let query = `UPDATE student SET inDelete = 1 WHERE studentId = ?`
+        let query = `UPDATE student SET isDelete = 0 WHERE studentId = ?`
 
         connection.connection.query(query, [studentId], (err, res) => {
             if (err) {

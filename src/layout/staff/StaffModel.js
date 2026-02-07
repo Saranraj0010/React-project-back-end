@@ -18,7 +18,7 @@ const AddStaffModel = async(userName,firstName,lastName,dateOfBirth,password,rol
 const GetStaffModel = () => {
     return new Promise((resolve, reject) => {
         let query=`SELECT id,userName, firstName, lastName, dateOfBirth,password,role,
-                   address,state, pincode, country, email, phoneNumber from staff where inDelete=1`
+                   address,state, pincode, country, email, phoneNumber from staff where isDelete=1`
         connection.connection.query(query,
             (err,res)=>{
                 if(err){
@@ -55,7 +55,7 @@ const UpdateStaffModel = (userName,firstName,lastName,dateOfBirth,password,role,
 }
 const DeleteStaffModel = (userName) => {
     return new Promise((resolve, reject) => {
-        let query=`UPDATE staff SET inDelete = 0 WHERE userName = ?`
+        let query=`UPDATE staff SET isDelete = 0 WHERE userName = ?`
         connection.connection.query(query,[userName],
             (err,res)=>{
                 if(err){

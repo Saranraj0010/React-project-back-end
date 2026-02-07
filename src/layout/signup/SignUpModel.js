@@ -50,7 +50,7 @@ const UpdateSignUpModel = (UserName,PhoneNumber,Password,id) => {
 }
 const DeleteSignUpModel = (id) => {
     return new Promise((resolve, reject) => {
-        let query=`update SignUppage set isDelete=1 where id =?;`
+        let query=`update SignUppage set isDelete=0 where id =?;`
         connection.connection.query(query,[id],
             (err,res)=>{
                 if(err){
