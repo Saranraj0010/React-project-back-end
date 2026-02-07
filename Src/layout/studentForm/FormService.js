@@ -5,22 +5,25 @@ const addFormService = async(data) => {
     // const formattedDOB = `${day}-${month}-${year}`;
     // console.log(formattedDOB)
     const result=await FormModel.addFormModel(data.studentId,data.firstName,data.middleName,data.lastName,data.dateOfBirth,data.streetAddress,data.city,data.statee,data.pincode,data.country,data.email,data.phoneNumber)
-    
+    console.log(result)
     return result
 }
-const getFormService = async(data) => {
+const getFormService = async() => {
     const result=await FormModel.getFormModel()
+    console.log(result)
     return result
     
 }
 const updateFormService = async(data) => {
     
     const result=await FormModel.updateFormModel(data.firstName,data.middleName,data.lastName,data.dateOfBirth,data.streetAddress,data.city,data.statee,data.pincode,data.country,data.email,data.phoneNumber,data.studentId)
+    console.log(result)
     return result
     
 }
 const deleteFormService = async(data) => {
     const result=await FormModel.deleteFormModel(data.studentId)
+    console.log(result)
     return result
 }
 module.exports = {addFormService,getFormService,updateFormService,deleteFormService}

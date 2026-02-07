@@ -6,7 +6,7 @@ const AddSignUpService = async(data) => {
 }
 const GetSignUpService = async() => {
     const result=await Model.GetSignUpModel()
-    console.log(result,"helo")
+    // console.log(result,"helo")
     return result
     
 }

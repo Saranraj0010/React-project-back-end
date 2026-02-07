@@ -1,4 +1,4 @@
-const connection = require("../../../connection/connection")
+const connection = require("../../connection/connection")
 
 const addFormModel = (
     studentId,
@@ -17,17 +17,19 @@ const addFormModel = (
     return new Promise((resolve, reject) => {
         let query = `
             INSERT INTO student
-            (studentId, firstName, middleName, lastName, dateOfBirth, streetAddress, city, statee, pincode, country, email, phoneNumber)
+            (firstName, middleName, lastName, dateOfBirth,studentId,  streetAddress, city, statee, pincode, country, email, phoneNumber)
             VALUES (?,?,?,?,?,?,?,?,?,?,?,?)
         `
 
-        connection.dbconnection.query(
+        connection.connection.query(
             query,
-            [studentId, firstName, middleName, lastName, dateOfBirth, streetAddress, city, statee, pincode, country, email, phoneNumber],
+            [   firstName, middleName, lastName, dateOfBirth,studentId,  streetAddress, city, statee, pincode, country, email, phoneNumber],
             (err, res) => {
                 if (err) {
+                console.log(err,"model")
                     reject(err)
                 } else {
+                    console.log(res)
                     resolve(res)
                 }
             }
@@ -44,8 +46,9 @@ const getFormModel = () => {
             WHERE inDelete = 0
         `
 
-        connection.dbconnection.query(query, (err, res) => {
+        connection.connection.query(query, (err, res) => {
             if (err) {
+                console.log(err,"model")
                 reject(err)
             } else {
                 resolve(res)
@@ -77,11 +80,12 @@ const updateFormModel = (
             WHERE studentId=?
         `
 
-        connection.dbconnection.query(
+        connection.connection.query(
             query,
             [firstName, middleName, lastName, dateOfBirth, streetAddress, city, statee, pincode, country, email, phoneNumber, studentId],
             (err, res) => {
                 if (err) {
+                console.log(err,"model")
                     reject(err)
                 } else {
                     resolve(res)
@@ -95,8 +99,9 @@ const deleteFormModel = (studentId) => {
     return new Promise((resolve, reject) => {
         let query = `UPDATE student SET inDelete = 1 WHERE studentId = ?`
 
-        connection.dbconnection.query(query, [studentId], (err, res) => {
+        connection.connection.query(query, [studentId], (err, res) => {
             if (err) {
+                console.log(err,"model")
                 reject(err)
             } else {
                 resolve(res)

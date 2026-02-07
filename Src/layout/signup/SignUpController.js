@@ -9,7 +9,6 @@ const AddSignUpController = async (req, res) => {
             message: "Account Added",
             data: result
         })
-
     }
     catch (err) {
         if (err) {
@@ -29,7 +28,7 @@ const AddSignUpController = async (req, res) => {
 const GetSignUpController = async (req, res) => {
     try {
         const result = await Service.GetSignUpService()
-        console.log(result, "hii")
+        // console.log(result, "hii")
         return res.status(200).json({
             message: "Data Geted",
             data: result
