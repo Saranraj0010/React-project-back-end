@@ -23,7 +23,7 @@ app.get("/", (req, res) => {
     res.send("welcome")
 });
 
-app.listen(3000, (error) => {
+app.listen(3001, (error) => {
     if (error) {
         return console.log("Server ERror")
     }

@@ -1,7 +1,7 @@
 const connection=require("../../connection/connection")
 const AddStaffModel = async(userName,firstName,lastName,dateOfBirth,password,role,address,state,country,pincode,email,phoneNumber) => {
     return new Promise((resolve, reject) => {
-        let query=`insert into staff (userName,firstName,lastName,dateOfBirth,password,role,address,state,country,pincode,email,phoneNumber) value (?,?,?,?,?,?,?,?,?,?,?,?)`
+        let query=`insert into staff(userName,firstName,lastName,dateOfBirth,password,role,address,state,country,pincode,email,phoneNumber)value(?,?,?,?,?,?,?,?,?,?,?,?);`
         connection.connection.query(query,[userName,firstName,lastName,dateOfBirth,password,role,address,state,country,pincode,email,phoneNumber],
             (err,res)=>{
                 if(err){
