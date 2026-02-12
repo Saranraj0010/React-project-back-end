@@ -14,6 +14,20 @@ const AddStaffModel = async(userName,firstName,lastName,dateOfBirth,password,rol
             }
         )
     })
+    // return new Promise((resolve, reject) => {
+    //     let query = `insert into staff(userName,firstName,lastName,dateOfBirth,role,address,state,country,pincode,email,phoneNumber,password)values(?,?,?,?,?,?,?,?,?,?,?);`
+    //     connection.connection.query(query, [userName, firstName, lastName, dateOfBirth, role, address, state, country, pincode, email, phoneNumber, password],
+    //         (err, res) => {
+    //             if (err) {
+    //                 console.log(err)
+    //                 reject(err)
+    //             }
+    //             else {
+    //                 resolve(res)
+    //             }
+    //         }
+    //     )
+    // })
 }
 const GetStaffModel = () => {
     return new Promise((resolve, reject) => {
@@ -53,16 +67,17 @@ const UpdateStaffModel = (userName,firstName,lastName,dateOfBirth,password,role,
     })
 
 }
-const DeleteStaffModel = (userName) => {
+const DeleteStaffModel = (id) => {
     return new Promise((resolve, reject) => {
-        let query=`UPDATE staff SET isDelete = 0 WHERE userName = ?`
-        connection.connection.query(query,[userName],
+        let query=`UPDATE staff SET isDelete = 0 WHERE id = ?`
+        connection.connection.query(query,[id],
             (err,res)=>{
                 if(err){
                     console.log(err)
                     reject(err)
                 }
                 else{
+                    console.log(res ,"model")
                     resolve(res)
                 }
             }

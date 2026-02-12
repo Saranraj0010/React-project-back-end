@@ -8,6 +8,7 @@ const sinUpController = require("../layout/signup/SignUpController")
 const staffController = require("../layout/staff/StaffController")
 const studentAdmission=require("../layout/studentAdmission/AdmissionController")
 const standard=require("../layout/standard/StandardController")
+const role=require("../layout/role/RoleController")
 app.use(express.json())
 
 router.post("/v1/AddUser", controller.AddController)
@@ -42,5 +43,9 @@ router.post("/v1/addStandard",standard.AddStandardController)
 router.get("/v1/getStandard",standard.GetStandardController)
 router.patch("/v1/updateStandard",standard.UpdateStandardController)
 router.patch("/v1/deleteStandard",standard.DeleteStandardController)
-
+// Role
+router.post("/v1/addRole",role.AddRoleController)
+router.get("/v1/getRole",role.GetRoleController)
+router.patch("/v1/updateRole",role.UpdateRoleController)
+router.patch("/v1/deleteRole",role.DeleteRoleController)
 module.exports = { router }
