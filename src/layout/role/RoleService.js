@@ -8,11 +8,11 @@ const GetRoleService = async() => {
     const result=await modul.GetRoleModel()
     return result
 }
-const UpdateRoleService = async() => {
-    const result=await modul.UpdateRoleModel(data.role)
+const UpdateRoleService = async(data) => {
+    const result=await modul.UpdateRoleModel(data.role,data.id)
     return result
 }
-const DeleteRoleService = async() => {
+const DeleteRoleService = async(data) => {
     const result=await modul.DeleteRoleModel(data.id)
     return result
 }

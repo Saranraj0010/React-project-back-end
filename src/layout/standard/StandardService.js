@@ -1,19 +1,20 @@
-const modul=require("./StandardModel")
-const AddStandardService = async(data) => {
-    const result=await modul.AddStandardModel(data.standard)
-        console.log(result),"ser"
+const modul = require("./StandardModel")
+const AddStandardService = async (data) => {
+    const result = await modul.AddStandardModel(data.standard)
+    console.log(result), "ser"
     return result
 }
-const GetStandardService = async() => {
-    const result=await modul.GetStandardModel()
+const GetStandardService = async () => {
+    const result = await modul.GetStandardModel()
     return result
 }
-const UpdateStandardService = async() => {
-    const result=await modul.UpdateStandardModel(data.standard)
+const UpdateStandardService = async (data) => {
+    const result = await modul.UpdateStandardModel(data.id,data.standard,)
+    console.log(result)
     return result
 }
-const DeleteStandardService = async() => {
-    const result=await modul.DeleteStandardModel(data.id)
+const DeleteStandardService = async (data) => {
+    const result = await modul.DeleteStandardModel(data.id)
     return result
 }
-module.exports ={AddStandardService,GetStandardService,UpdateStandardService,DeleteStandardService}
+module.exports = { AddStandardService, GetStandardService, UpdateStandardService, DeleteStandardService }

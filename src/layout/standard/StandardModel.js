@@ -29,14 +29,16 @@ const GetStandardModel = () => {
         )
     })
 }
-const UpdateStandardModel = () => {
+const UpdateStandardModel = (id,standard) => {
      return new Promise((resolve, reject) => {
         let query=`UPDATE standardData SET standard=? WHERE id=?`
-        connection.connection.query(query, [standard],
+        connection.connection.query(query, [standard,id],
             (err, res) => {
                 if (err) {
+                    console.log(err)
                     reject(err)
                 } else {
+                    console.log(res)
                     resolve(res)
                 }
             }

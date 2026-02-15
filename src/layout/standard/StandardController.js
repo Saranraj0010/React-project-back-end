@@ -42,17 +42,21 @@ const GetStandardController = async(req,res) => {
 const UpdateStandardController = async(req,res) => {
     try{
         const data=req.body
+        console.log(data)
         const result=await service.UpdateStandardService(data)
+    console.log(result)
         return res.status(200).json({
             message:"Data Updated",
             data:result
         })
     }catch(err){
         if(err){
+    console.log(err)
             return res.status(400).json({
                 message:"Client Error"
             })
         }
+    console.log(err)
         return res.status(500).json({
             message:"Server Error"
         })

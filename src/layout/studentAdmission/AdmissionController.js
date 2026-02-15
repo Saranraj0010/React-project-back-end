@@ -42,6 +42,7 @@ const GetAdmissionController = async (req, res) => {
 const UpdateAdmissionController = async (req, res) => {
     try {
         const data = req.body
+        console.log(data,"fornt")
         const result = await service.UpdateAdmissionService(data)
         return res.status(200).json({
             message: "Student Admission Updated",

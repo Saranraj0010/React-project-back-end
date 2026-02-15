@@ -29,10 +29,10 @@ const GetRoleModel = () => {
         )
     })
 }
-const UpdateRoleModel = () => {
+const UpdateRoleModel = (role,id) => {
      return new Promise((resolve, reject) => {
         let query=`UPDATE roleData SET role=? WHERE id=?`
-        connection.connection.query(query, [role],
+        connection.connection.query(query, [role,id],
             (err, res) => {
                 if (err) {
                     reject(err)
