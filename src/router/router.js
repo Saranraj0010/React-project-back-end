@@ -1,6 +1,8 @@
 const express = require("express")
 const app = express()
 const router = express.Router()
+const {upload}=require("../Upload")
+
 const controller = require('../practice/Controller')
 const formController = require("../layout/studentForm/FormController")
 const loginController = require("../layout/login/LoginController")
@@ -9,6 +11,7 @@ const staffController = require("../layout/staff/StaffController")
 const studentAdmission=require("../layout/studentAdmission/AdmissionController")
 const standard=require("../layout/standard/StandardController")
 const role=require("../layout/role/RoleController")
+const circular=require("../layout/circular/CircularController")
 app.use(express.json())
 
 router.post("/v1/AddUser", controller.AddController)
@@ -48,4 +51,11 @@ router.post("/v1/addRole",role.AddRoleController)
 router.get("/v1/getRole",role.GetRoleController)
 router.patch("/v1/updateRole",role.UpdateRoleController)
 router.patch("/v1/deleteRole",role.DeleteRoleController)
+//Circular
+
+router.post("/v1/addCircular",upload.single("file"),circular.AddCircularController);
+router.get("/v1/getCircular",circular.GetCircularController)
+router.patch("/v1/updateCircular",circular.UpdateCircularController)
+router.patch("/v1/deleteCircular",circular.DeleteCircularController)
+
 module.exports = { router }
