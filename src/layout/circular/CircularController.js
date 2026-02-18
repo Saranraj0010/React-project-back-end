@@ -4,12 +4,9 @@ const uplord = require("../../../src/Upload")
 const AddCircularController = async (req, res) => {
     try {
         const data = req.body
-        // {
-        //     text: req.body.text,
-        //     select: req.body.select,
-        //     files: req.file ? req.file.filename : null
-        // }
-        const result = await service.AddCircularService(data)
+        const file=req.file
+        console.log(file)
+        const result = await service.AddCircularService(data,file)
         return res.json({
             message: "Circular added successfully",
             data:result

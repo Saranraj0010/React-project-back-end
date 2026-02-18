@@ -1,7 +1,7 @@
 const model=require("./CircularModel")
-const AddCircularService = async(data) => {
+const AddCircularService = async(data,file) => {
     try {
-        const result = await model.AddCircularModel(data.text,data.select,data.title)
+        const result = await model.AddCircularModel(data.text,data.select,data.title,file)
         return result;
     } catch (err) {
         throw err;

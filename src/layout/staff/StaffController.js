@@ -2,7 +2,7 @@ const service = require("./StaffService")
 const AddStaffController = async (req, res) => {
     try {
         const data = req.body
-        // console.log(data)
+        console.log(data)
         const result = await service.AddStaffService(data)
         return res.status(200).json({
             message: "Staff Added SuccessFuly",

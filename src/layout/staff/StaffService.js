@@ -29,18 +29,17 @@ const AddStaffService = async (data) => {
       from: `"School Admin" <${process.env.MAIL_USER}>`,
       to: data.email,
       subject: "Welcome to School Portal",
-      html: `
-        <h3>Hello ${data.firstName},</h3>
+      html: `<h3>Hello ${data.firstName},</h3>
         <p>Your staff account has been created successfully.</p>
         <p><b>Username:</b> ${data.userName}</p>
+        <p><b>Role:</b> ${data.role}</p>
         <p><b>Temporary Password:</b> ${Password}</p>
-        <p>Please login and change your password immediately.</p>
-      `,
+        <p>Please login and change your password immediately.</p>`,
     });
     return
   } catch (err) {
     console.log(err);
-    throw err;
+    throw err;  
   }
 };
 
