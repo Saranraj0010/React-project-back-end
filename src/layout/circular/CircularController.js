@@ -5,7 +5,7 @@ const AddCircularController = async (req, res) => {
     try {
         const data = req.body
         const file=req.file
-        console.log(file)
+        console.log(data)
         const result = await service.AddCircularService(data,file)
         return res.json({
             message: "Circular added successfully",

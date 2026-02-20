@@ -1,8 +1,9 @@
 const connection = require("../../connection/connection")
-const AddCircularModel = (text,select,title) => {
+const AddCircularModel = (text,select,title,file) => {
     return new Promise((resolve, reject) => {
-        const query = `INSERT INTO circular (text,title,role_type)VALUES (?,?,?)`;
-        connection.connection.query(query, [text,title,select],
+         const filePath = file ? file.path : null;
+        const query = `INSERT INTO circular (role_type,text,title,file)VALUES (?,?,?,?)`;
+        connection.connection.query(query, [select,text,title,filePath],
             (err, result) => {
                 if (err) {
                     reject(err);
@@ -15,7 +16,7 @@ const AddCircularModel = (text,select,title) => {
 };
 const GetCircularModel = () => {
     return new Promise((resolve, reject) => {
-        const query = `select id,text,role_type,title FROM circular where isDelete=1;`
+        const query = `select id,text,role_type,title,file FROM circular where isDelete=1;`
         connection.connection.query(query,
             (err, result) => {
                 if (err) {

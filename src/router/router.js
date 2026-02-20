@@ -12,6 +12,9 @@ const studentAdmission=require("../layout/studentAdmission/AdmissionController")
 const standard=require("../layout/standard/StandardController")
 const role=require("../layout/role/RoleController")
 const circular=require("../layout/circular/CircularController")
+const section=require("../layout/section/SectionController")
+const staffAllocation=require("../layout/staffAllocation/StaffAllocationController")
+const subject=require("../layout/subject/SubjectController")
 app.use(express.json())
 
 router.post("/v1/AddUser", controller.AddController)
@@ -52,10 +55,24 @@ router.get("/v1/getRole",role.GetRoleController)
 router.patch("/v1/updateRole",role.UpdateRoleController)
 router.patch("/v1/deleteRole",role.DeleteRoleController)
 //Circular
-
 router.post("/v1/addCircular",upload.single("file"),circular.AddCircularController);
 router.get("/v1/getCircular",circular.GetCircularController)
 router.patch("/v1/updateCircular",circular.UpdateCircularController)
 router.patch("/v1/deleteCircular",circular.DeleteCircularController)
+//Section
+router.post("/v1/addSection",section.AddSectionController)
+router.get("/v1/getSection",section.GetSectionController)
+router.patch("/v1/updateSection",section.UpdateSectionController)
+router.patch("/v1/deleteSection",section.DeleteSectionController)
+//StaffAllocation
+router.post("/v1/addAllocation",staffAllocation.AddStaffAllocationController)
+router.get("/v1/getAllocation",staffAllocation.GetStaffAllocationController)
+router.patch("/v1/updateAllocation",staffAllocation.UpdateStaffAllocationController)
+router.patch("/v1/deleteAllocation",staffAllocation.DeleteStaffAllocationController)
+//Subject
+router.post("/v1/addSubject",subject.AddSubjectController)
+router.get("/v1/getSubject",subject.GetSubjectController)
+router.patch("/v1/updateSubject",subject.UpdateSubjectController)
+router.patch("/v1/deleteSubject",subject.DeleteSubjectController)
 
 module.exports = { router }

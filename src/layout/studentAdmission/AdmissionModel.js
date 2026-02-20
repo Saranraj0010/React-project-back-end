@@ -1,8 +1,8 @@
 const connection=require("../../connection/connection")
-const AddAdmissionModel = (userName,firstName,lastName,gender,dateOfBirth,aaadharno,standard,bloodGroup,language,address,state,nationality,pincode,email,studentMobileNo,fatherName,fatherOccupation,fatherNumber,motherName,motherOccupation,motherNumber,password) => {
+const AddAdmissionModel = (userName,firstName,lastName,gender,dateOfBirth,aaadharno,standard,bloodGroup,language,section,address,state,nationality,pincode,email,studentMobileNo,fatherName,fatherOccupation,fatherNumber,motherName,motherOccupation,motherNumber,password) => {
     return new Promise((resolve, reject) => {
-        let query=`insert into studentAdmission(userName,firstName,lastName,gender,dateOfBirth,aaadharno,standard,bloodGroup,language,address,state,nationality,pincode,email,studentMobileNo,fatherName,fatherOccupation,fatherNumber,motherName,motherOccupation,motherNumber,password)value(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`
-        connection.connection.query(query,[userName,firstName,lastName,gender,dateOfBirth,aaadharno,standard,bloodGroup,language,address,state,nationality,pincode,email,studentMobileNo,fatherName,fatherOccupation,fatherNumber,motherName,motherOccupation,motherNumber,password],
+        let query=`insert into studentAdmission(userName,firstName,lastName,gender,dateOfBirth,aaadharno,standard,bloodGroup,language,section,address,state,nationality,pincode,email,studentMobileNo,fatherName,fatherOccupation,fatherNumber,motherName,motherOccupation,motherNumber,password)value(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`
+        connection.connection.query(query,[userName,firstName,lastName,gender,dateOfBirth,aaadharno,standard,bloodGroup,language,section,address,state,nationality,pincode,email,studentMobileNo,fatherName,fatherOccupation,fatherNumber,motherName,motherOccupation,motherNumber,password],
             (err,res)=>{
                 if(err){
                     console.log(err)
@@ -18,7 +18,7 @@ const AddAdmissionModel = (userName,firstName,lastName,gender,dateOfBirth,aaadha
 }
 const GetAdmissionModel = () => {
     return new Promise((resolve, reject) => {
-        let query=`select id,userName,firstName,lastName,gender,dateOfBirth,aaadharno,standard,bloodGroup,language,address,state,nationality,pincode,email,studentMobileNo,fatherName,fatherOccupation,fatherNumber,motherName,motherOccupation,motherNumber,password from studentAdmission where isDelete=1;`
+        let query=`select id,userName,firstName,lastName,gender,dateOfBirth,aaadharno,standard,bloodGroup,language,section,address,state,nationality,pincode,email,studentMobileNo,fatherName,fatherOccupation,fatherNumber,motherName,motherOccupation,motherNumber,password from studentAdmission where isDelete=1;`
         connection.connection.query(query,
             (err,res)=>{
                 if(err){
@@ -32,10 +32,10 @@ const GetAdmissionModel = () => {
         )
     })
 }
-const UpdateAdmissionModel = (userName,firstName,lastName,gender,dateOfBirth,aaadharno,standard,bloodGroup,language,address,state,nationality,pincode,email,studentMobileNo,fatherName,fatherOccupation,fatherNumber,motherName,motherOccupation,motherNumber,id) => {
+const UpdateAdmissionModel = (userName,firstName,lastName,gender,dateOfBirth,aaadharno,standard,bloodGroup,language,section,address,state,nationality,pincode,email,studentMobileNo,fatherName,fatherOccupation,fatherNumber,motherName,motherOccupation,motherNumber,id) => {
     return new Promise((resolve, reject) => {
-        let query=`update studentAdmission set userName=?,firstName=?,lastName=?,gender=?,dateOfBirth=?,aaadharno=?,standard=?,bloodGroup=?,language=?,address=?,state=?,nationality=?,pincode=?,email=?,studentMobileNo=?,fatherName=?,fatherOccupation=?,fatherNumber=?,motherName=?,motherOccupation=?,motherNumber=? where id=?`
-        connection.connection.query(query,[userName,firstName,lastName,gender,dateOfBirth,aaadharno,standard,bloodGroup,language,address,state,nationality,pincode,email,studentMobileNo,fatherName,fatherOccupation,fatherNumber,motherName,motherOccupation,motherNumber,id],
+        let query=`update studentAdmission set userName=?,firstName=?,lastName=?,gender=?,dateOfBirth=?,aaadharno=?,standard=?,bloodGroup=?,language=?,section=?,address=?,state=?,nationality=?,pincode=?,email=?,studentMobileNo=?,fatherName=?,fatherOccupation=?,fatherNumber=?,motherName=?,motherOccupation=?,motherNumber=? where id=?`
+        connection.connection.query(query,[userName,firstName,lastName,gender,dateOfBirth,aaadharno,standard,bloodGroup,language,section,address,state,nationality,pincode,email,studentMobileNo,fatherName,fatherOccupation,fatherNumber,motherName,motherOccupation,motherNumber,id],
             (err,res)=>{
                 if(err){
                     reject(err)

@@ -10,7 +10,7 @@ const AddAdmissionService = async (data) => {
             symbols:false
         })
 
-        await model.AddAdmissionModel(data.userName, data.firstName, data.lastName, data.gender, data.dateOfBirth, data.aaadharno, data.standard, data.bloodGroup, data.language, data.address, data.state, data.nationality, data.pincode, data.email, data.studentMobileNo, data.fatherName, data.fatherOccupation, data.fatherNumber, data.motherName, data.motherOccupation, data.motherNumber,Password)
+        await model.AddAdmissionModel(data.userName, data.firstName, data.lastName, data.gender, data.dateOfBirth, data.aaadharno, data.standard, data.bloodGroup, data.language,data.section , data.address, data.state, data.nationality, data.pincode, data.email, data.studentMobileNo, data.fatherName, data.fatherOccupation, data.fatherNumber, data.motherName, data.motherOccupation, data.motherNumber,Password)
         await email.sendMail({
             from: `"School Admin" <${process.env.MAIL_USER}>`,
       to: data.email,
@@ -34,7 +34,7 @@ const GetAdmissionService = async () => {
     return result
 }
 const UpdateAdmissionService = async (data) => {
-    const result = await model.UpdateAdmissionModel(data.userName, data.firstName, data.lastName, data.gender, data.dateOfBirth, data.aaadharno, data.standard, data.bloodGroup, data.language, data.address, data.state, data.nationality, data.pincode, data.email, data.studentMobileNo, data.fatherName, data.fatherOccupation, data.fatherNumber, data.motherName, data.motherOccupation, data.motherNumber, data.id)
+    const result = await model.UpdateAdmissionModel(data.userName, data.firstName, data.lastName, data.gender, data.dateOfBirth, data.aaadharno, data.standard, data.bloodGroup, data.language,data.section, data.address, data.state, data.nationality, data.pincode, data.email, data.studentMobileNo, data.fatherName, data.fatherOccupation, data.fatherNumber, data.motherName, data.motherOccupation, data.motherNumber, data.id)
     return result
 }
 const DeleteAdmissionService = async (data) => {
