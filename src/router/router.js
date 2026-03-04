@@ -15,6 +15,7 @@ const circular=require("../layout/circular/CircularController")
 const section=require("../layout/section/SectionController")
 const staffAllocation=require("../layout/staffAllocation/StaffAllocationController")
 const subject=require("../layout/subject/SubjectController")
+const fees = require("../layout/fees/FeesController")
 app.use(express.json())
 
 router.post("/v1/AddUser", controller.AddController)
@@ -74,5 +75,10 @@ router.post("/v1/addSubject",subject.AddSubjectController)
 router.get("/v1/getSubject",subject.GetSubjectController)
 router.patch("/v1/updateSubject",subject.UpdateSubjectController)
 router.patch("/v1/deleteSubject",subject.DeleteSubjectController)
+//Fees
+router.post("/v1/addFees",fees.AddFeesController)
+router.get("/v1/getFees",fees.GetFeesController)
+// router.patch("/v1/updateFees",fees.UpdateFeesController)
+// router.patch("/v1/deleteFees",fees.DeleteFeesController)
 
 module.exports = { router }
