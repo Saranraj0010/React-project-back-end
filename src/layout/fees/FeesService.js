@@ -8,7 +8,7 @@ const GetFeesService = async() => {
     return result
 }
 const UpdateFeesService = async(data) => {
-    const result =await model.UpdateFeesModel(data.fees,data.id)
+    const result =await model.UpdateFeesModel(data.fees,data.id,data.standard)
     return result
 }
 const DeleteFeesService = async(data) => {

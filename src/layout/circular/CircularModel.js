@@ -29,7 +29,31 @@ const GetCircularModel = () => {
     });
 }
 const UpdateCircularModel = () => {
+     return new Promise((resolve, reject) => {
+            let query=`UPDATE circular SET text=?,title=?,role_type=?,file=? WHERE id=?`
+            connection.connection.query(query, [id],
+                (err, res) => {
+                    if (err) {
+                        reject(err)
+                    } else {
+                        resolve(res)
+                    }
+                }
+            )
+        })
 }
-const DeleteCircularModel = () => {
+const DeleteCircularModel = (id) => {
+    return new Promise((resolve, reject) => {
+            let query=`UPDATE circular SET isDelete=0 WHERE id=?`
+            connection.connection.query(query, [id],
+                (err, res) => {
+                    if (err) {
+                        reject(err)
+                    } else {
+                        resolve(res)
+                    }
+                }
+            )
+        })
 }
 module.exports = { AddCircularModel, GetCircularModel, UpdateCircularModel, DeleteCircularModel }

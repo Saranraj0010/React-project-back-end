@@ -29,7 +29,7 @@ const AddCircularController = async (req, res) => {
     }
 }
 const GetCircularController = async (req, res) => {
-     try {
+    try {
         const result = await service.GetCircularService()
         return res.json({
             message: "Circular Get successfully",
@@ -52,8 +52,54 @@ const GetCircularController = async (req, res) => {
         })
     }
 }
-const UpdateCircularController = () => {
+const UpdateCircularController = async(req,res) => {
+    try {
+        const data=req.body
+        const result = await service.UpdateCircularService(data)
+        return res.json({
+            message: "Circular Updated successfully",
+            data:result
+        })
+    }
+    catch (err) {
+        if (err) {
+            console.log(err)
+            return res.status(400).json({
+
+                message: "Circular Data Not Updated",
+                error: err
+            })
+        }
+        console.log(err)
+        return res.status(500).json({
+            message: "Server Error",
+            error: err
+        })
+    }
 }
-const DeleteCircularController = () => {
+const DeleteCircularController = async(req,res) => {
+    try {
+        const data=req.body
+        const result = await service.DeleteCircularServicer(data)
+        return res.json({
+            message: "Circular Deleted successfully",
+            data:result
+        })
+    }
+    catch (err) {
+        if (err) {
+            console.log(err)
+            return res.status(400).json({
+
+                message: "Circular Data Not Deleted",
+                error: err
+            })
+        }
+        console.log(err)
+        return res.status(500).json({
+            message: "Server Error",
+            error: err
+        })
+    }
 }
 module.exports = { AddCircularController, GetCircularController, UpdateCircularController, DeleteCircularController }

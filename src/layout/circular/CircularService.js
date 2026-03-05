@@ -15,8 +15,20 @@ const GetCircularService = async() => {
         throw err;
     }
 }
-const UpdateCircularService = () => {
+const UpdateCircularService = async(data) => {
+    try{
+        const result = await model.UpdateCircularModel(data.id,data.text,data.role_type,data.title,data.file);
+        return result
+    }catch(err){
+        throw err;
+    }
 }
-const DeleteCircularServicer = () => {
+const DeleteCircularServicer = async(data) => {
+    try{
+        const result = await model.DeleteCircularModel(data.id);
+        return result
+    }catch(err){
+        throw err;
+    }
 }
 module.exports={AddCircularService,GetCircularService,UpdateCircularService,DeleteCircularServicer}
