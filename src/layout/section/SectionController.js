@@ -2,9 +2,7 @@ const service=require("./SectionService")
 const AddSectionController = async(req,res) => {
     try{
         const data=req.body
-        console.log(data,"co")
         const result=await service.AddSectionService(data)
-        console.log(result,"res co")
         return res.status(200).json({
             message:"Success",  
             data:result
@@ -42,9 +40,7 @@ const GetSectionController = async(req,res) => {
 const UpdateSectionController = async(req,res) => {
     try{
         const data=req.body
-        console.log(data)
         const result=await service.UpdateSectionService(data)
-    console.log(result)
         return res.status(200).json({
             message:"Data Updated",
             data:result

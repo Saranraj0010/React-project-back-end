@@ -2,9 +2,7 @@ const Service = require("./SignUpService")
 const AddSignUpController = async (req, res) => {
     try {
         const data = req.body
-        console.log(data)
         const result = await Service.AddSignUpService(data)
-        console.log(result)
         return res.status(200).json({
             message: "Account Added",
             data: result
@@ -28,7 +26,6 @@ const AddSignUpController = async (req, res) => {
 const GetSignUpController = async (req, res) => {
     try {
         const result = await Service.GetSignUpService()
-        // console.log(result, "hii")
         return res.status(200).json({
             message: "Data Geted",
             data: result
@@ -54,7 +51,6 @@ const UpdateSignUpController = async (req, res) => {
     try {
         const data = req.body
         const result = await Service.UpdateSignUpService(data)
-        console.log(result, "hello")
         return res.status(200).json({
             message: "User Updated",
             data: result
@@ -79,7 +75,6 @@ const DeleteSignUpController = async (req, res) => {
     try {
         const data = req.body
         const result = await Service.DeleteSignUpService(data)
-        console.log(result)
         return res.status(200).json({
             message: "User Deleted",
             data: result

@@ -41,7 +41,6 @@ const UpdateSignUpModel = (UserName,PhoneNumber,Password,id) => {
                     reject(err)
                 }
                 else{
-                    console.log(res)
                     resolve(res)
                 }
             }
@@ -58,7 +57,6 @@ const DeleteSignUpModel = (id) => {
                     reject(err)
                 }
                 else{
-                    console.log(res)
                     resolve(res)
                 }
             }

@@ -1,17 +1,18 @@
-const service = require("./FeesService")
-const AddFeesController = async (req, res) => {
+const service = require("./PaymentService")
+const AddPaymentController = async (req, res) => {
     try {
         const data = req.body
-        const result = await service.AddFeesService(data)
+        const result = await service.AddPaymentService(data)
         return res.status(200).json({
-            message: "Fees Added",
+            message: "Payment Added",
             data: result
         })
     }
     catch (err) {
         if (err) {
+            console.log(err)
             return res.status(400).json({
-                message: "Fees Not Added",
+                message: "Payment Not Added",
                 data: err
             })
         }
@@ -21,16 +22,17 @@ const AddFeesController = async (req, res) => {
         })
     }
 }
-const GetFeesController = async (req,res) => {
+const GetPaymentController = async (req,res) => {
     try {
-        const result = await service.GetFeesService()
+        const result = await service.GetPaymentService()
         return res.status(200).json({
-            message: "Fees Geted",
+            message: "Payment Geted",
             data: result
         })
     }
     catch(err){
         if(err){
+            console.log(err)
             return res.status(400).json({
                 message:"Client Error"
             })
@@ -40,41 +42,43 @@ const GetFeesController = async (req,res) => {
         })
     }
 }
-const UpdateFeesController = async (req, res) => {
+const UpdatePaymentController = async (req, res) => {
     try {
         const data = req.body
-        const result = await service.UpdateFeesService(data)
+        const result = await service.UpdatePaymentService(data)
         return res.status(200).json({
-            message: "Fees Update",
+            message: "Payment Update",
             data: result
         })
     }
     catch (err) {
         if (err) {
+            console.log(err)
             return res.status(400).json({
-                message: "Fees update Failed",
+                message: "Payment update Failed",
                 data: err
             })
         }
+            console.log(err)
         return res.status(500).json({
             message: "server Error",
             data: err
         })
     }
 }
-const DeleteFeesController = async (req, res) => {
+const DeletePaymentController = async (req, res) => {
     try {
         const data = req.body
-        const result = await service.DeleteFeesService(data)
+        const result = await service.DeletePaymentService(data)
         return res.status(200).json({
-            message: "Fees Deleted",
+            message: "Payment Deleted",
             data: result
         })
     }
     catch (err) {
         if (err) {
             return res.status(400).json({
-                message: "Fees Deleted Failed",
+                message: "Payment Deleted Failed",
                 data: err
             })
         }
@@ -84,4 +88,4 @@ const DeleteFeesController = async (req, res) => {
         })
     }
 }
-module.exports = { AddFeesController, GetFeesController, UpdateFeesController, DeleteFeesController }
+module.exports = { AddPaymentController, GetPaymentController, UpdatePaymentController, DeletePaymentController }

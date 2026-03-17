@@ -8,7 +8,6 @@ const AddStandardModel = (standard) => {
                     console.log(err)
                     reject(err)
                 } else {
-                    console.log(res ,"mo")
                     resolve(res)
                 }
             }
@@ -38,7 +37,6 @@ const UpdateStandardModel = (id,standard) => {
                     console.log(err)
                     reject(err)
                 } else {
-                    console.log(res)
                     resolve(res)
                 }
             }

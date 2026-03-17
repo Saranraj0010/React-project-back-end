@@ -53,7 +53,6 @@ const UpdateStaffService = async(data) => {
 }
 const DeleteStaffService = async(data) => {
     const result=await model.DeleteStaffModel(data.id)
-    console.log(result,"service")
     return result
 }
 module.exports={AddStaffService,GetStaffService,UpdateStaffService,DeleteStaffService}

@@ -1,7 +1,6 @@
 const modul = require("./StandardModel")
 const AddStandardService = async (data) => {
     const result = await modul.AddStandardModel(data.standard)
-    console.log(result), "ser"
     return result
 }
 const GetStandardService = async () => {
@@ -10,7 +9,6 @@ const GetStandardService = async () => {
 }
 const UpdateStandardService = async (data) => {
     const result = await modul.UpdateStandardModel(data.id,data.standard,)
-    console.log(result)
     return result
 }
 const DeleteStandardService = async (data) => {

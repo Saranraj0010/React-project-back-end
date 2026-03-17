@@ -1,7 +1,6 @@
 const modul = require("./SectionModel")
 const AddSectionService = async (data) => {
     const result = await modul.AddSectionModel(data.section)
-    console.log(result), "ser"
     return result
 }
 const GetSectionService = async () => {
@@ -10,7 +9,6 @@ const GetSectionService = async () => {
 }
 const UpdateSectionService = async (data) => {
     const result = await modul.UpdateSectionModel(data.id,data.section,)
-    console.log(result)
     return result
 }
 const DeleteSectionService = async (data) => {

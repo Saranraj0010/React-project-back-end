@@ -1,7 +1,6 @@
 const modul=require("./RoleModel")
 const AddRoleService = async(data) => {
     const result=await modul.AddRoleModel(data.role)
-        console.log(result),"ser"
     return result
 }
 const GetRoleService = async() => {

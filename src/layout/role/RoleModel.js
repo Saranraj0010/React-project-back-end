@@ -8,7 +8,6 @@ const AddRoleModel = (role) => {
                     console.log(err)
                     reject(err)
                 } else {
-                    console.log(res ,"mo")
                     resolve(res)
                 }
             }

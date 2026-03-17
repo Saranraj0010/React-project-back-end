@@ -29,7 +29,6 @@ const addFormModel = (
                 console.log(err,"model")
                     reject(err)
                 } else {
-                    console.log(res)
                     resolve(res)
                 }
             }

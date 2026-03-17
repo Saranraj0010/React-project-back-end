@@ -2,9 +2,7 @@ const Service = require("./Service")
 const AddForm = async (req, res) => {
     try {
         const data = req.body
-        console.log(data)
         const result = await Service.AddForm(data)
-        console.log(result)
         return res.status(200).json({
             message: "Post Added",
             data: result
@@ -25,9 +23,7 @@ const AddController = async (req, res) => {
     try {
 
         const data = req.body
-        console.log(data)
         const result = await Service.AddService(data)
-        console.log(result, "hello")
         return res.status(200).json({
             message: "Post Added",
             data: result

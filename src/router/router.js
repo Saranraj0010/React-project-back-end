@@ -16,6 +16,7 @@ const section=require("../layout/section/SectionController")
 const staffAllocation=require("../layout/staffAllocation/StaffAllocationController")
 const subject=require("../layout/subject/SubjectController")
 const fees = require("../layout/fees/FeesController")
+const payment=require("../layout/payment/PaymentController")
 app.use(express.json())
 
 router.post("/v1/AddUser", controller.AddController)
@@ -78,7 +79,11 @@ router.patch("/v1/deleteSubject",subject.DeleteSubjectController)
 //Fees
 router.post("/v1/addFees",fees.AddFeesController)
 router.get("/v1/getFees",fees.GetFeesController)
-// router.patch("/v1/updateFees",fees.UpdateFeesController)
-// router.patch("/v1/deleteFees",fees.DeleteFeesController)
+router.patch("/v1/updateFees",fees.UpdateFeesController)
+router.patch("/v1/deleteFees",fees.DeleteFeesController)
+//Payments
+router.post("/v1/addPayment",payment.AddPaymentController)
+router.get("/v1/getPayment",payment.GetPaymentController)
+router.post("/v1/updatePayment",payment.UpdatePaymentController)
 
 module.exports = { router }

@@ -2,9 +2,7 @@ const service=require("./StandardService")
 const AddStandardController = async(req,res) => {
     try{
         const data=req.body
-        console.log(data,"co")
         const result=await service.AddStandardService(data)
-        console.log(result,"res co")
         return res.status(200).json({
             message:"Success",  
             data:result
@@ -42,9 +40,7 @@ const GetStandardController = async(req,res) => {
 const UpdateStandardController = async(req,res) => {
     try{
         const data=req.body
-        console.log(data)
         const result=await service.UpdateStandardService(data)
-    console.log(result)
         return res.status(200).json({
             message:"Data Updated",
             data:result

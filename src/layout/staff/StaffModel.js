@@ -40,7 +40,6 @@ const GetStaffModel = () => {
                     reject(err)
                 }   
                 else{
-                    console.log(res)
                     resolve(res)
                 }
             }
@@ -77,7 +76,6 @@ const DeleteStaffModel = (id) => {
                     reject(err)
                 }
                 else{
-                    console.log(res ,"model")
                     resolve(res)
                 }
             }

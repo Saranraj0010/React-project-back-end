@@ -2,9 +2,7 @@ const service = require("./SubjectService")
 const AddSubjectController = async (req, res) => {
     try {
         const data = req.body
-        console.log(data, "co")
         const result = await service.AddSubjectService(data)
-        console.log(result, "res co")
         return res.status(200).json({
             message: "Success",
             data: result
@@ -42,9 +40,7 @@ const GetSubjectController = async (req, res) => {
 const UpdateSubjectController = async (req, res) => {
     try {
         const data = req.body
-        console.log(data)
         const result = await service.UpdateSubjectService(data)
-        console.log(result)
         return res.status(200).json({
             message: "Data Updated",
             data: result

@@ -2,9 +2,7 @@ const service=require("./RoleService")
 const AddRoleController = async(req,res) => {
     try{
         const data=req.body
-        console.log(data,"co")
         const result=await service.AddRoleService(data)
-        console.log(result,"res co")
         return res.status(200).json({
             message:"Success",  
             data:result

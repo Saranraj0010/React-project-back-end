@@ -3,7 +3,6 @@ const AddLoginController = async(req,res) => {
     try{
         const data=req.body
         const result=await LoginService.AddLoginService(data)
-        console.log(data,"cont")
         return res.status(200).json({
             message:"Login Succesful",
             data:result
