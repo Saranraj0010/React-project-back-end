@@ -1,17 +1,11 @@
 const connection=require("../../connection/connection")
-const AddLoginModel = (UserId,Password) => {
+const AddLoginModel = (UserName) => {
     return new Promise((resolve, reject) => {
-        let query=`insert into loginpage (UserId,Password) value (?,?)`
-        connection.connection.query(query,[UserId,Password],
-            (err,res)=>{
-                if(err){
-                    reject(err)
-                }
-                else{
-                    resolve(res)
-                    console.log(Password)
-                }
-            })
-    })
-}
+        let query = `SELECT * FROM SignUppage WHERE UserName = ?`;
+        connection.connection.query(query, [UserName], (err, res) => {
+            if (err) reject(err);
+            else resolve(res);
+        });
+    });
+};
 module.exports={AddLoginModel}

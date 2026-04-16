@@ -4,6 +4,7 @@ const router = express.Router()
 const {upload}=require("../Upload")
 
 const controller = require('../practice/Controller')
+const Login = require('../authentication/controller/authController')
 const formController = require("../layout/studentForm/FormController")
 const loginController = require("../layout/login/LoginController")
 const sinUpController = require("../layout/signup/SignUpController")
@@ -86,4 +87,8 @@ router.post("/v1/addPayment",payment.AddPaymentController)
 router.get("/v1/getPayment",payment.GetPaymentController)
 router.post("/v1/updatePayment",payment.UpdatePaymentController)
 
+//Login
+router.post("/v1/login",Login.login)
+router.post("/v1/signup", Login.signup);
+router.post("/v1/logout", Login.logout);
 module.exports = { router }
