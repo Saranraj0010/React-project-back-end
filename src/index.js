@@ -5,7 +5,7 @@ const { router } = require('./router/router')
 const dbconnection = require('./connection/connection')
 // const port= 3000
 
-const whitelist = ['http://localhost:5173','http://localhost:5174','http://192.168.1.50:5173','http://192.168.1.50:5174', 'http://192.168.1.50:3001',"http://192.168.31.203:5173"]
+const whitelist = ['http://localhost:5173','http://localhost:5174','http://192.168.1.50:5173','http://192.168.1.50:5174', 'http://192.168.1.50:3001',"http://192.168.31.203:5173","https://react-project-front-end.vercel.app/"]
 const corsOptions = {
     origin: function (origin, callback) {
         if (whitelist.includes(origin) || !origin) {
