@@ -20,7 +20,8 @@ const dbconnection = require('./connection/connection')
 app.use(cors({
   origin: [
     "https://react-project-front-end.vercel.app",
-    "https://react-project-front-end-git-main-sarans-projects-50648c53.vercel.app"
+    "https://react-project-front-end-git-main-sarans-projects-50648c53.vercel.app",
+    "https://react-project-front-end.onrender.com"
   ],
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
